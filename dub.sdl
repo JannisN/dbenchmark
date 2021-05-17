@@ -1,0 +1,5 @@
+name "dbenchmark"
+description "A minimal D application."
+authors "Admin"
+copyright "Copyright © 2021, Admin"
+license "proprietary"

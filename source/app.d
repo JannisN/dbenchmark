@@ -36,7 +36,7 @@ void main()
 	writeln(MonoTime.currTime().ticks() - t);*/
 	
 	t.start();
-	writeln("Edit source/app.d to start your project.");
+	writeln("Ticks per second: " ~ to!string(MonoTime().ticksPerSecond));
 	t.stop("Test");
 	t.start();
 	// hier könnte man eine lokale funktion benutzen um t in die funktion zu bringen(siehe delegates)
@@ -53,7 +53,7 @@ void main()
 	auto ia2 = malloc(100);
 	t.stop("Test");
 	t.start();
-	int[10] ia4;
+	int[10] ia4 = void;
 	ia4[0] = 12;
 	for (int i = 0; i < 100; i++) {}
 	t.stop("Test");
@@ -65,3 +65,4 @@ void main()
 
 //extern(C) __gshared bool rt_cmdline_enabled = false;
 //extern(C) __gshared string[] rt_options = ["gcopt=gc:manual disable:1"];
+extern(C) __gshared string[] rt_options = ["gcopt=profile:1"];

@@ -57,10 +57,18 @@ void main()
 	ia4[0] = 12;
 	for (int i = 0; i < 100; i++) {}
 	t.stop("Test");
-	for (int i = 0; i < 1000000; i++) {new int[1000];}
+	for (int i = 0; i < 10000; i++) {ia = new int[1000];}
 	t.start();
 	GC.collect();
 	t.stop("Collect");
+	writeln("usedSize: ", GC.stats().usedSize);
+	writeln("freeSize: ", GC.stats().freeSize);
+	writeln("allocatedInCurrentThread: ", GC.stats().allocatedInCurrentThread);
+	writeln("numCollections: ", GC.profileStats().numCollections);
+	writeln("totalCollectionTime: ", GC.profileStats().totalCollectionTime);
+	writeln("totalPauseTime: ", GC.profileStats().totalPauseTime);
+	writeln("maxPauseTime: ", GC.profileStats().maxPauseTime);
+	writeln("maxCollectionTime: ", GC.profileStats().maxCollectionTime);
 }
 
 //extern(C) __gshared bool rt_cmdline_enabled = false;
